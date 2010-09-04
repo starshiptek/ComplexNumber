@@ -8,13 +8,15 @@ public class Main {
 		
 		
 		ComplexNum testComplexNum1 = new ComplexNum();
-		testComplexNum1.setImaginaryNum(129);
-		testComplexNum1.setRealNum(2.5);
+		testComplexNum1.setRealNum(5);
+		testComplexNum1.setImaginaryNum(6);
+		
 
 
 		ComplexNum testComplexNum2 = new ComplexNum();
-		testComplexNum2.setImaginaryNum(100);
-		testComplexNum2.setRealNum(-3);
+		testComplexNum2.setRealNum(5);
+		testComplexNum2.setImaginaryNum(6);
+		
 
 		
 		BasicMathDoer testBasicMathDoer = new BasicMathDoer(testComplexNum1, testComplexNum2);
@@ -23,7 +25,7 @@ public class Main {
 		testComplexNum2.printThis();
 
 		//testBasicMathDoer.subtract().printThis();
-		testBasicMathDoer.add().printThis();
+		System.out.println(foilDebuggerF);
 		
 		
 	}

@@ -5,6 +5,8 @@ public class BasicMathDoer {
 	private ComplexNum complexNum2 = new ComplexNum();
 	private ComplexNum complexNumResultOfSubtraction = new ComplexNum();
 	private ComplexNum complexNumResultOfAddition = new ComplexNum();
+	private ComplexNum complexNumResultOfMultiply = new ComplexNum();
+	private static int iSquared = -1;
 	
 
 	
@@ -28,10 +30,32 @@ public class BasicMathDoer {
 		return complexNumResultOfSubtraction;
 	}
 	
+	/**
+	 * complexNum1 plus ComplexNum2
+	 * 
+	 */
 	public ComplexNum add(){
 		complexNumResultOfAddition.setRealNum(this.complexNum1.getRealNum() + this.complexNum2.getRealNum());
 		complexNumResultOfAddition.setImaginaryNum(this.complexNum1.getImaginaryNum() + this.complexNum2.getImaginaryNum());
 		
 		return complexNumResultOfAddition;
 	}
+	
+	
+	public ComplexNum multiply(){
+		
+		//Step 1 "F" in FOIL 
+		complexNumResultOfMultiply.setRealNum(this.complexNum1.getRealNum() * this.complexNum2.getRealNum());
+		
+		//Step 2 "O" in FOIL
+		complexNumResultOfMultiply.setImaginaryNum(this.complexNum1.getRealNum() * this.complexNum2.getImaginaryNum());
+		
+		//Step 3 "I" in FOIL -- adds the current imaginary-number part to the result of the next step of FOIL
+		complexNumResultOfMultiply.setImaginaryNum(complexNumResultOfMultiply.getImaginaryNum() + (complexNum1.getImaginaryNum()*complexNum2.getRealNum()));
+		
+		//Step 4 "L" in FOIL -- iSquared is always -1, so I've set it up as a static variable
+		complexNumResultOfMultiply.setRealNum(complexNum1.getImaginaryNum() * complexNum2.getImaginaryNum() * iSquared);
+		
+		return complexNumResultOfMultiply;
+		}
 }
