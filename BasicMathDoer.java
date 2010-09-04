@@ -7,10 +7,7 @@ public class BasicMathDoer {
 	private ComplexNum complexNumResultOfAddition = new ComplexNum();
 	private ComplexNum complexNumResultOfMultiply = new ComplexNum();
 	private static int iSquared = -1;
-	public double foilDebuggerF = 0;
-	public double foilDebuggerO = 0;
-	public double foilDebuggerI = 0;
-	public double foilDebuggerL = 0;
+
 	
 
 	
@@ -49,16 +46,19 @@ public class BasicMathDoer {
 	public ComplexNum multiply(){
 		
 		//Step 1 "F" in FOIL 
-		foilDebuggerF = this.complexNum1.getRealNum() * this.complexNum2.getRealNum();
+		Global.foilStep_F = this.complexNum1.getRealNum() * this.complexNum2.getRealNum();
 		
 		//Step 2 "O" in FOIL
-		foilDebuggerO = this.complexNum1.getRealNum() * this.complexNum2.getImaginaryNum();
+		Global.foilStep_O = this.complexNum1.getRealNum() * this.complexNum2.getImaginaryNum();
 		
 		//Step 3 "I" in FOIL -- adds the current imaginary-number part to the result of the next step of FOIL
-		foilDebuggerI = foilDebuggerO + (complexNum1.getImaginaryNum()*complexNum2.getRealNum());
+		Global.foilStep_I = complexNum1.getImaginaryNum()*complexNum2.getRealNum();
 		
 		//Step 4 "L" in FOIL -- iSquared is always -1, so I've set it up as a static variable
-		foilDebuggerL = complexNum1.getImaginaryNum() * complexNum2.getImaginaryNum() * iSquared;
+		Global.foilStep_L = complexNum1.getImaginaryNum() * complexNum2.getImaginaryNum() * iSquared;
+		
+		complexNumResultOfMultiply.setRealNum(Global.foilStep_F+Global.foilStep_L);
+		complexNumResultOfMultiply.setImaginaryNum(Global.foilStep_O+Global.foilStep_I);
 		
 		return complexNumResultOfMultiply;
 		}
