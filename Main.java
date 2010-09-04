@@ -9,13 +9,13 @@ public class Main {
 		
 		ComplexNum testComplexNum1 = new ComplexNum();
 		testComplexNum1.setRealNum(2);
-		testComplexNum1.setImaginaryNum(-2);
+		testComplexNum1.setImaginaryNum(3);
 		
 
 
 		ComplexNum testComplexNum2 = new ComplexNum();
-		testComplexNum2.setRealNum(1);
-		testComplexNum2.setImaginaryNum(1000);
+		testComplexNum2.setRealNum(2);
+		testComplexNum2.setImaginaryNum(4);
 		
 
 		
@@ -24,7 +24,10 @@ public class Main {
 		testComplexNum1.printThis();
 		testComplexNum2.printThis();
 
-		testBasicMathDoer.multiply().printThis();
+		testBasicMathDoer.divide().printThis();
+		
+
+		
 		
 		
 	}
